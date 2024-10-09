@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 50px;
+            text-align: center;
+            background-color:grey;
+        }
+        div input[type=text] {
+            margin: 8px;
+            padding: 20px;
+            width: 70ch;
+            font-size:medium;
+            border: 1px solid transparent;
+        }      
+        div button{
+            margin: 0 4px;
+            padding: 8px 0;
+            width: 62px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        div select{
+            margin: 0 4px;
+            padding: 6px 0;
+            width: 62px;
+            border: 1px solid #000;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <p id="result"></p> -->
+    <div>
+       <h2>Calculator</h2>
+       <input type="text" id="demo"><br>
+       <input type="text" id="nos"><br><br>
+       <select id="operators">
+           <option value="Add">+</option>
+           <option value="Substract">-</option>
+           <option value="Multiply">*</option>
+           <option value="Division">/</option>
+        </select>
+        <button onclick="cal()">=</button>
+        <h3><b>The Result Is:</b></h3>
+        <input type="text" id="result" readonly>
+    <script>
+         function cal(){
+            var num=parseInt(document.getElementById("demo").value);
+            var num1=parseInt(document.getElementById("nos").value);
+            var operator= document.getElementById("operators").value;
+            switch(operator){   
+                case 'Add':
+                add(num,num1);
+            break;
+             case 'Substract':
+             sub(num,num1);
+            
+            break;
+            case 'Multiply':
+             mult(num,num1);
+             break;
+            case 'Division':
+                div(num,num1);
+            break;
+            }
+
+        var num=parseInt(document.getElementById("demo").value);
+        var num1=parseInt(document.getElementById("nos").value);
+     
+        function add(){
+          document.getElementById("result").value=num+num1;
+        }
+        function sub(){
+          document.getElementById("result").value=num-num1;
+        }function mult(){
+          document.getElementById("result").value=num*num1;
+        }
+        function div(){
+                if (num1 !== 0) {
+                    document.getElementById("result").value=num/num1;
+
+                }
+
+        }
+    }
+        
+    </script>
+    
+</body>
+</html>
